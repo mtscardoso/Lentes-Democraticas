@@ -1,0 +1,161 @@
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Garante que o conteúdo principal ocupe o espaço restante */
+.main-content {
+    flex-grow: 1;
+    padding: 1fr 1fr; /* Aumentar o padding vertical */
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto; /* Centraliza */
+}
+header { 
+    background-color: #760101; 
+    color: white; 
+    padding: 1em 0; 
+    text-align: center;
+    line-height:10.0px;
+}
+.headercomimagem {
+    background-image: url("");
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+    opacity: 1;
+}
+
+nav { 
+    background-color: #904444; 
+    padding: 0.5em 0; }
+
+nav ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    text-align: center; }
+
+nav ul li { 
+    display: inline; 
+    margin: 0 15px; }
+
+nav ul li a { color: white; 
+    text-decoration: none; 
+    font-weight: bold; }
+
+/* 4. Conteúdo Principal (Main) - ALTERADO */
+.container1 {
+    padding: 1rem ; /* Mais padding interno */
+    border-radius: 1.5rem; /* Mais arredondado */
+    border: 1px solid #e5e7eb; /* Borda sutil */
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.05); /* Sombra mais suave e elevada */
+    margin-top: 2rem; /* Mais margem superior */
+}
+
+.explica {
+    display: flex;
+    flex-direction: column; /* Padrão: coluna para mobile */
+    gap: 3rem; /* Aumentar o espaçamento */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+}
+
+.Explicacao {
+    width: 100%;
+    text-align: justify;
+}
+
+.Explicacao h2 {
+    font-size: 2rem; /* Título maior */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 4px solid var(--cor-secundaria); /* Linha de separação mais grossa e colorida */
+    line-height: 1.2;
+}
+
+.text-content p {
+    margin-bottom: 1.25rem; /* Mais espaço entre parágrafos */
+    color: #4b5563;
+    font-size: 1rem;
+}
+
+.text-content strong {
+    font-weight: 700;
+    color: var(--cor-primaria); /* Destacar negritos */
+}
+
+.explica > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.explica img {
+    width: 100%;
+    max-width: 24rem; /* Um pouco maior que o original */
+    height: auto;
+    border-radius: 1.5rem; /* Mais arredondado */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Efeito de transição mais agradável */
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+.explica img:hover {
+    transform: scale(1.05); /* Efeito hover mais pronunciado */
+}
+
+.Explicacao {
+    width: 65%; /* Ajuste a largura do texto */
+}
+
+.explica > div:last-child { 
+    width: 35%; /* Ajuste a largura da imagem */
+    padding-top: 1rem; /* Alinhar melhor a imagem ao título */
+}
+            
+.container1 {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+.fixar-rodape{
+    background-color: #760101;
+    color: white;
+    border-top: 1px solid #333;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+/* Media Query para Desktop: Imagem à Esquerda */
+@media (min-width: 768px) {
+    .explica {
+        /* imagem à esquerda. */
+        flex-direction: row-reverse; 
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .explica img {
+        max-width: 45%;
+        height: auto;
+    }
+
+    .Explicacao {
+        width: 55%;
+    }
+}

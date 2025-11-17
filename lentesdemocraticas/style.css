@@ -1,0 +1,168 @@
+header { 
+    background-color: #760101; 
+    color: white; 
+    padding: 1em 0; 
+    text-align: center;
+    line-height:10.0px;
+}
+.headercomimagem {
+    background-image: url("");
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+    opacity: 1;;
+}
+
+nav { 
+    background-color: #904444; 
+    padding: 0.5em 0; }
+
+nav ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    text-align: center; }
+
+nav ul li { 
+        display: inline; 
+        margin: 0 15px; }
+
+nav ul li a { color: white; 
+    text-decoration: none; 
+    font-weight: bold; }
+
+.h2-inicial{
+font-weight: bold;
+}
+
+.h4-inicial{
+font-weight: bold;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+div {
+  margin-top: 90px; /* espaço acima */
+  margin-bottom: 20px; /* espaço abaixo */
+}
+
+p{
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Reseta margens e fontes padrão */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  text-align: center;
+}
+
+/* Título principal */
+header h1 {
+  margin: 40px 0 20px;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Galeria de artistas */
+.galeria {
+  display: flex;
+  flex-wrap: wrap; /* Faz quebrar linha em telas menores */
+  justify-content: center; /* Centraliza tudo */
+  gap: 40px; /* Espaço entre os blocos */
+  padding: 20px;
+}
+
+/* Cada bloco de artista */
+.artista {
+  width: 250px;
+  text-align: center;
+}
+
+/* Imagens dos artistas */
+.artista img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Efeito quando passa o mouse */
+.artista img:hover {
+  transform: scale(1.05);
+}
+
+/* Texto abaixo da imagem */
+.artista p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.forms{
+  text-align: center;
+  align-items: center;
+}
+
+.fixar-rodape{
+  background-color: #760101;
+  color: white;
+  border-top: 1px solid #333;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  position: fixed;
+  width: 100%;
+}
+.invasao{
+  font-weight: bold;
+}
+
+.constituição{
+  font-weight: bold;
+}
+
+.republica{
+  font-weight: bold;
+}
+.bis{
+  font-weight: bold;
+}
+
+.mj{
+  font-weight: bold;
+}
+
+.ditadura {
+  font-weight: bold;
+}
+
+.grito{
+  font-weight: bold;
+}
+
+.luar{
+  font-weight: bold;
+}
+
+.masp{
+  font-weight: bold;
+}
+
+.movimento{
+  font-weight: bold;
+}
+
+.ouro{
+  font-weight: bold;
+}
+
+.crise{
+  font-weight: bold;
+}
+

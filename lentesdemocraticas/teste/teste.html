@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com ideias</title>
+    <link rel="stylesheet" href="teste.css">
+    <script src="node.js"></script>
+</head>
+<body>
+    <div class="container">
+    <h1>Ferramenta de Criação de Imagens por IA</h1>
+    <form id="prompt-form">
+        <label for="prompt-ideia">Sua Ideia de Prompt (Descreva o que você quer que a IA gere):</label>
+        <textarea id="prompt-ideia" name="prompt-ideia" rows="8" placeholder="Ex: Um gato usando um chapéu de astronauta, estilo aquarela, cores vibrantes, fundo estrelado."></textarea>
+
+        <button type="submit">Gerar Imagem</button>
+    </form>
+
+    <h2>Esboço / Imagem Gerada</h2>
+
+    <div id="imagem-gerada">
+        A imagem gerada pela IA aparecerá aqui após você submeter a sua ideia.
+    </div>
+</div>
+<script>
+    const form = document.getElementById('prompt-form');
+    const promptInput = document.getElementById('prompt-ideia');
+    const imagemGeradaDiv = document.getElementById('imagem-gerada');
+
+    // URL do seu servidor backend (se você estiver executando o exemplo Node.js)
+    const BACKEND_URL = 'http://localhost:5500/api/generate-image'; 
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault(); 
+
+        const prompt = promptInput.value.trim();
+
+        if (prompt === "") {
+            imagemGeradaDiv.innerHTML = '<p style="color: orange;">Por favor, digite sua ideia no campo acima!</p>';
+            return;
+        }
+
+        // 1. Mostrar mensagem de carregamento
+        imagemGeradaDiv.innerHTML = '<p><strong>🚀 Gerando imagem com Imagen via API Gemini...</strong> Por favor, aguarde.</p>';
+        imagemGeradaDiv.style.minHeight = '200px'; 
+        
+        try {
+            // 2. Chama o seu servidor backend para iniciar a geração da imagem
+            const response = await fetch(BACKEND_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                // Se o servidor retornou um erro (ex: 400 ou 500)
+                throw new Error(data.error || 'Erro desconhecido na comunicação com o servidor.');
+            }
+
+            // 3. A API retorna a imagem em Base64. Usamos um Data URL para exibir a imagem.
+            const base64Image = data.base64Image;
+            
+            // Cria o Data URL no formato: "data:image/jpeg;base64,..."
+            const imageUrl = `data:image/jpeg;base64,${base64Image}`;
+
+            // 4. Exibe a imagem no campo
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = 'Imagem gerada por IA para: ' + prompt;
+
+            // Limpa a mensagem de carregamento e insere a imagem
+            imagemGeradaDiv.innerHTML = ''; 
+            imagemGeradaDiv.appendChild(imgElement);
+
+        } catch (error) {
+            console.error('Erro na geração da imagem:', error);
+            imagemGeradaDiv.innerHTML = `<p style="color: red;">Ocorreu um erro: ${error.message}. Verifique o console do servidor.</p>`;
+        }
+    });
+</script>
+
+</body>
+</html>
